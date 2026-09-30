@@ -1,0 +1,38 @@
+{
+  "name": "ai-video-studio",
+  "version": "1.0.0",
+  "description": "Bộ 3 Template Tạo Video Tự Động Với AI - Remotion & HyperFrames",
+  "private": true,
+  "workspaces": [
+    "templates/topic-explainer",
+    "templates/news-video",
+    "templates/compare-video",
+    "templates/compare-video/videos/*"
+  ],
+  "scripts": {
+    "dev:topic": "npm run dev -w @studio/topic-explainer",
+    "build:topic": "npm run build -w @studio/topic-explainer",
+    "tts:topic": "npm run tts -w @studio/topic-explainer",
+    "pipeline:news": "npm run pipeline -w @studio/news-video --",
+    "rerender:news": "npm run rerender -w @studio/news-video --",
+    "dev:compare": "npm run dev -w @studio/video-dev-vs-devops",
+    "render:compare": "npm run render -w @studio/video-dev-vs-devops",
+    "vo:compare": "node templates/compare-video/videos/dev-vs-devops/scripts/generate-vo.mjs",
+    "dev:compare:meteor": "npm run dev -w @studio/video-thien-thach-vs-sao-bang",
+    "render:compare:meteor": "npm run render -w @studio/video-thien-thach-vs-sao-bang",
+    "vo:compare:meteor": "node templates/compare-video/videos/thien-thach-vs-sao-bang/scripts/generate-vo.mjs"
+  },
+  "keywords": [
+    "remotion",
+    "hyperframes",
+    "video-generator",
+    "tts",
+    "edge-tts",
+    "ai-agent",
+    "shorts",
+    "tiktok",
+    "reels"
+  ],
+  "author": "Cuongyd196",
+  "license": "MIT"
+}
