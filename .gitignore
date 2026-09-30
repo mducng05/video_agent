@@ -9,6 +9,7 @@ package-lock.json
 
 # Build & Renders
 dist/
+build/
 out/
 output/
 renders/

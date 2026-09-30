@@ -112,16 +112,9 @@ export async function generateSpeechToFile(
     volume?: string;
   }
 ): Promise<{ sizeBytes: number; durationSec: number; durationInFrames: number }> {
-  // Dynamically import edge-tts-universal
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const edgeTtsModule: any = await import("edge-tts-universal");
-  const IsomorphicCommunicate =
-    edgeTtsModule.IsomorphicCommunicate ||
-    edgeTtsModule.Communicate ||
-    edgeTtsModule.default?.IsomorphicCommunicate ||
-    edgeTtsModule.default;
+  const { EdgeTTS } = await import("edge-tts-universal");
 
-  const voice = options?.voice || process.env.EDGE_TTS_VOICE || "vi-VN-HoaiMyNeural";
+  const voice = options?.voice || process.env.EDGE_TTS_VOICE || "vi-VN-NamMinhNeural";
   const rate = options?.rate || process.env.EDGE_TTS_RATE || "+10%";
   const pitch = options?.pitch || process.env.EDGE_TTS_PITCH || "+0Hz";
   const volume = options?.volume || process.env.EDGE_TTS_VOLUME || "+0%";
@@ -131,28 +124,18 @@ export async function generateSpeechToFile(
     fs.mkdirSync(dir, { recursive: true });
   }
 
+  const ttsOptions: Record<string, string> = {};
+  if (rate && rate !== "+0%") ttsOptions.rate = rate;
+  if (pitch && pitch !== "+0Hz" && pitch !== "+0%") ttsOptions.pitch = pitch;
+  if (volume && volume !== "+0%") ttsOptions.volume = volume;
+
   let lastError: unknown;
-  for (let attempt = 1; attempt <= 3; attempt++) {
+  for (let attempt = 1; attempt <= 5; attempt++) {
     try {
-      const chunks: Buffer[] = [];
-      const communicate = new IsomorphicCommunicate(text, {
-        voice,
-        rate,
-        pitch,
-        volume,
-      });
+      const tts = new EdgeTTS(text, voice, ttsOptions);
 
-      for await (const chunk of communicate.stream()) {
-        if (chunk.type === "audio" && chunk.data) {
-          if (Buffer.isBuffer(chunk.data)) {
-            chunks.push(chunk.data);
-          } else if (chunk.data instanceof Uint8Array || chunk.data instanceof ArrayBuffer) {
-            chunks.push(Buffer.from(chunk.data));
-          }
-        }
-      }
-
-      const audioBuffer = Buffer.concat(chunks);
+      const result = await tts.synthesize();
+      const audioBuffer = Buffer.from(await result.audio.arrayBuffer());
       if (audioBuffer.length === 0) {
         throw new Error("No audio bytes received");
       }
@@ -170,8 +153,9 @@ export async function generateSpeechToFile(
       };
     } catch (err) {
       lastError = err;
-      console.warn(`      ⚠️ Attempt ${attempt} failed, retrying in 1.5s...`, (err as Error)?.message || err);
-      await new Promise((r) => setTimeout(r, 1500));
+      const delay = attempt * 2000;
+      console.warn(`      ⚠️ Attempt ${attempt} failed, retrying in ${delay / 1000}s...`, (err as Error)?.message || err);
+      await new Promise((r) => setTimeout(r, delay));
     }
   }
 
