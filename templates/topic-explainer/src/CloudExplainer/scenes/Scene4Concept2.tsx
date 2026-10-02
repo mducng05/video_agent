@@ -13,41 +13,32 @@ export const Scene4Concept2: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Header Badge spring
   const badgeScale = spring({
     frame,
     fps,
-    config: { damping: 12, stiffness: 100 },
+    config: { damping: 14, stiffness: 120 },
   });
 
-  // 3 Stacked Models (Bottom to top or Top to bottom)
-  const l1Y = spring({
+  const p1Y = spring({
     frame: frame - 6,
     fps,
-    from: 40,
+    from: 30,
     to: 0,
-    config: { damping: 12, stiffness: 100 },
+    config: { damping: 16, stiffness: 100 },
   });
-  const l2Y = spring({
+  const p2Y = spring({
     frame: frame - 14,
     fps,
-    from: 40,
+    from: 30,
     to: 0,
-    config: { damping: 12, stiffness: 100 },
+    config: { damping: 16, stiffness: 100 },
   });
-  const l3Y = spring({
+  const p3Y = spring({
     frame: frame - 22,
     fps,
-    from: 40,
+    from: 30,
     to: 0,
-    config: { damping: 12, stiffness: 100 },
-  });
-
-  // Pay as you go badge
-  const payScale = spring({
-    frame: frame - 30,
-    fps,
-    config: { damping: 12, stiffness: 100 },
+    config: { damping: 16, stiffness: 100 },
   });
 
   return (
@@ -57,89 +48,79 @@ export const Scene4Concept2: React.FC = () => {
       {/* Top Header Badge */}
       <div
         style={{ transform: `scale(${badgeScale})` }}
-        className="flex items-center gap-3 rounded-full border-2 border-emerald-400/50 bg-emerald-500/15 px-8 py-3.5 backdrop-blur-md"
+        className="flex items-center gap-3 rounded-full border border-emerald-500/40 bg-slate-900/80 px-8 py-3 backdrop-blur-xl shadow-lg"
       >
-        <span className="text-3xl font-black tracking-wider text-emerald-300 uppercase">
-          ⚙️ 3 MÔ HÌNH DỊCH VỤ CỐT LÕI
+        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+        <span className="text-2xl font-bold tracking-widest text-emerald-300 uppercase">
+          MÔ HÌNH DỊCH VỤ DOANH NGHIỆP
         </span>
       </div>
 
-      {/* Center 3 Architecture Layers */}
+      {/* 3 Modern Enterprise Service Pillars */}
       <div className="mt-8 flex w-full max-w-xl flex-col gap-4">
-        {/* Layer 1: SaaS */}
+        {/* Pillar 1: Cloud Server */}
         <div
-          style={{ transform: `translateY(${l1Y}px)` }}
-          className="flex items-center justify-between rounded-3xl border-2 border-emerald-400/50 bg-gradient-to-r from-emerald-950/60 to-slate-900/90 p-5 shadow-xl backdrop-blur-xl"
+          style={{ transform: `translateY(${p1Y}px)` }}
+          className="flex items-center justify-between rounded-2xl border border-slate-700/60 bg-slate-900/85 p-5 shadow-lg backdrop-blur-xl"
         >
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/25 text-3xl font-black text-emerald-300">
-              SaaS
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono font-bold text-lg">
+              01
             </div>
             <div>
-              <h3 className="text-3xl font-black text-emerald-200">Software as a Service</h3>
-              <p className="text-xl font-medium text-slate-300">Google Drive, Gmail, Canva, Office 365</p>
+              <h3 className="text-2xl font-bold text-white">Cloud Server</h3>
+              <p className="text-base text-slate-400">Máy chủ ảo hiệu năng cao, độc lập tài nguyên</p>
             </div>
           </div>
-          <span className="rounded-full bg-emerald-500/20 px-4 py-1.5 text-lg font-bold text-emerald-300">
-            Dùng ngay
+          <span className="rounded-lg bg-cyan-500/15 px-3 py-1 text-xs font-mono font-bold text-cyan-300">
+            COMPUTE
           </span>
         </div>
 
-        {/* Layer 2: PaaS */}
+        {/* Pillar 2: Cloud Storage */}
         <div
-          style={{ transform: `translateY(${l2Y}px)` }}
-          className="flex items-center justify-between rounded-3xl border-2 border-sky-400/50 bg-gradient-to-r from-sky-950/60 to-slate-900/90 p-5 shadow-xl backdrop-blur-xl"
+          style={{ transform: `translateY(${p2Y}px)` }}
+          className="flex items-center justify-between rounded-2xl border border-slate-700/60 bg-slate-900/85 p-5 shadow-lg backdrop-blur-xl"
         >
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-sky-500/25 text-3xl font-black text-sky-300">
-              PaaS
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 font-mono font-bold text-lg">
+              02
             </div>
             <div>
-              <h3 className="text-3xl font-black text-sky-200">Platform as a Service</h3>
-              <p className="text-xl font-medium text-slate-300">Firebase, Vercel, Heroku, App Engine</p>
+              <h3 className="text-2xl font-bold text-white">Cloud Storage</h3>
+              <p className="text-base text-slate-400">Kho lưu trữ dữ liệu an toàn, mở rộng không giới hạn</p>
             </div>
           </div>
-          <span className="rounded-full bg-sky-500/20 px-4 py-1.5 text-lg font-bold text-sky-300">
-            Chỉ viết code
+          <span className="rounded-lg bg-blue-500/15 px-3 py-1 text-xs font-mono font-bold text-blue-300">
+            STORAGE
           </span>
         </div>
 
-        {/* Layer 3: IaaS */}
+        {/* Pillar 3: Backup Solution */}
         <div
-          style={{ transform: `translateY(${l3Y}px)` }}
-          className="flex items-center justify-between rounded-3xl border-2 border-purple-400/50 bg-gradient-to-r from-purple-950/60 to-slate-900/90 p-5 shadow-xl backdrop-blur-xl"
+          style={{ transform: `translateY(${p3Y}px)` }}
+          className="flex items-center justify-between rounded-2xl border border-slate-700/60 bg-slate-900/85 p-5 shadow-lg backdrop-blur-xl"
         >
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-500/25 text-3xl font-black text-purple-300">
-              IaaS
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono font-bold text-lg">
+              03
             </div>
             <div>
-              <h3 className="text-3xl font-black text-purple-200">Infrastructure as a Service</h3>
-              <p className="text-xl font-medium text-slate-300">Máy ảo EC2, Lưu trữ S3, Mạng VPC</p>
+              <h3 className="text-2xl font-bold text-white">Sao Lưu Dự Phòng</h3>
+              <p className="text-base text-slate-400">Backup tự động đa điểm, phòng ngừa rủi ro dữ liệu</p>
             </div>
           </div>
-          <span className="rounded-full bg-purple-500/20 px-4 py-1.5 text-lg font-bold text-purple-300">
-            Toàn quyền
-          </span>
-        </div>
-
-        {/* Pay-as-you-go Banner */}
-        <div
-          style={{ transform: `scale(${payScale})` }}
-          className="flex items-center justify-center gap-3 rounded-2xl border border-amber-400/50 bg-amber-500/15 py-3 shadow-lg"
-        >
-          <span className="text-3xl">💳</span>
-          <span className="text-2xl font-black text-amber-300 uppercase tracking-wide">
-            Pay-as-you-go: Dùng bao nhiêu — Trả bấy nhiêu
+          <span className="rounded-lg bg-emerald-500/15 px-3 py-1 text-xs font-mono font-bold text-emerald-300">
+            BACKUP & DR
           </span>
         </div>
       </div>
 
-      {/* Subtitle 1 line */}
+      {/* Subtitle */}
       <SubtitleBox
-        text="Bạn chỉ việc thuê tài nguyên qua Internet và trả tiền theo nhu cầu sử dụng. Từ máy ảo, cơ sở dữ liệu, cho đến những ứng dụng quen thuộc như Google Drive hay Gmail."
-        durationInFrames={308}
-        highlightKeyword="Internet"
+        text="Doanh nghiệp chỉ chi trả theo đúng nhu cầu sử dụng: từ máy chủ Cloud Server, lưu trữ Cloud Storage, đến hệ thống sao lưu dự phòng tự động."
+        durationInFrames={280}
+        highlightKeyword="chi trả theo đúng nhu cầu"
         className="mt-64"
       />
     </AbsoluteFill>

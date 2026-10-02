@@ -2,7 +2,6 @@ import React from "react";
 import {
   AbsoluteFill,
   Audio,
-  interpolate,
   spring,
   staticFile,
   useCurrentFrame,
@@ -14,42 +13,26 @@ export const Scene5Benefits: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  // Header Badge spring
   const badgeScale = spring({
     frame,
     fps,
-    config: { damping: 12, stiffness: 100 },
+    config: { damping: 14, stiffness: 120 },
   });
 
-  // Scale Hero Counter Card
-  const heroScale = spring({
+  const m1Scale = spring({
     frame: frame - 6,
     fps,
-    config: { damping: 12, stiffness: 90 },
+    config: { damping: 16, stiffness: 100 },
   });
-
-  // Server Counter: interpolates from 1 to 1000
-  const serverCount = Math.floor(
-    interpolate(frame, [10, 45], [1, 1000], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    })
-  );
-
-  // 2 Side Benefit Cards
-  const b1X = spring({
-    frame: frame - 20,
+  const m2Scale = spring({
+    frame: frame - 14,
     fps,
-    from: -60,
-    to: 0,
-    config: { damping: 14, stiffness: 100 },
+    config: { damping: 16, stiffness: 100 },
   });
-  const b2X = spring({
-    frame: frame - 26,
+  const m3Scale = spring({
+    frame: frame - 22,
     fps,
-    from: 60,
-    to: 0,
-    config: { damping: 14, stiffness: 100 },
+    config: { damping: 16, stiffness: 100 },
   });
 
   return (
@@ -59,76 +42,82 @@ export const Scene5Benefits: React.FC = () => {
       {/* Top Header Badge */}
       <div
         style={{ transform: `scale(${badgeScale})` }}
-        className="flex items-center gap-3 rounded-full border-2 border-amber-400/50 bg-amber-500/15 px-8 py-3.5 backdrop-blur-md"
+        className="flex items-center gap-3 rounded-full border border-cyan-500/40 bg-slate-900/80 px-8 py-3 backdrop-blur-xl shadow-lg"
       >
-        <span className="text-3xl font-black tracking-wider text-amber-300 uppercase">
-          🚀 SỨC MẠNH VƯỢT TRỘI
+        <span className="h-2.5 w-2.5 rounded-full bg-cyan-400" />
+        <span className="text-2xl font-bold tracking-widest text-cyan-300 uppercase">
+          HIỆU QUẢ DOANH NGHIỆP (ROI)
         </span>
       </div>
 
-      {/* Center Group */}
-      <div className="mt-8 flex w-full max-w-xl flex-col gap-6">
-        {/* Elastic Auto-Scale Hero Card */}
+      {/* 3 Executive Metric Cards */}
+      <div className="mt-8 flex w-full max-w-xl flex-col gap-4">
+        {/* Metric 1 */}
         <div
-          style={{ transform: `scale(${heroScale})` }}
-          className="rounded-3xl border-2 border-cyan-400/50 bg-gradient-to-r from-cyan-950/70 via-slate-900/95 to-blue-950/70 p-8 text-center shadow-[0_0_80px_rgba(34,211,238,0.4)] backdrop-blur-xl"
+          style={{ transform: `scale(${m1Scale})` }}
+          className="flex items-center justify-between rounded-2xl border border-slate-700/60 bg-gradient-to-r from-slate-900/90 via-slate-950/95 to-slate-900/90 p-6 shadow-xl backdrop-blur-xl"
         >
-          <div className="flex items-center justify-center gap-3 text-5xl">
-            <span>🖱️</span>
-            <span>⚡</span>
-            <span>🚀</span>
-          </div>
-
-          <div className="mt-3 flex items-center justify-center gap-4">
-            <span className="text-6xl font-black text-slate-300">1</span>
-            <span className="text-4xl text-cyan-400 font-bold">➡️</span>
-            <span className="text-7xl font-black bg-gradient-to-r from-cyan-300 via-amber-300 to-rose-400 bg-clip-text text-transparent">
-              {serverCount.toLocaleString()}
+          <div>
+            <span className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase">
+              TỐI ƯU CHI PHÍ
             </span>
-            <span className="text-3xl font-black text-cyan-300">Servers</span>
+            <h3 className="mt-1 text-2xl font-bold text-white">Cắt Giảm Ngân Sách IT</h3>
+            <p className="text-sm text-slate-400">Không phải bỏ vốn lớn đầu tư phần cứng</p>
           </div>
-
-          <p className="mt-2 text-3xl font-bold text-amber-300">
-            Tự động Scale sau 1 cú click chuột!
-          </p>
-          <span className="mt-1 inline-block text-xl text-slate-300">
-            Dù 100 hay 1.000.000 người vào cùng lúc vẫn mượt mà
-          </span>
+          <div className="text-right">
+            <span className="text-5xl font-black tracking-tight text-cyan-400 font-mono">
+              -60%
+            </span>
+            <span className="block text-xs font-mono text-cyan-300">OPEX Tiết Kiệm</span>
+          </div>
         </div>
 
-        {/* 2 Benefit Cards */}
-        <div className="grid grid-cols-2 gap-5">
-          {/* Cost Savings */}
-          <div
-            style={{ transform: `translateX(${b1X}px)` }}
-            className="flex flex-col items-center rounded-3xl border-2 border-emerald-400/40 bg-emerald-950/40 p-6 text-center shadow-xl backdrop-blur-md"
-          >
-            <div className="text-5xl">💰📉</div>
-            <h3 className="mt-3 text-3xl font-black text-emerald-300">Tiết Kiệm 70%</h3>
-            <p className="mt-2 text-xl font-medium text-slate-200">
-              Không mua phần cứng, không tốn bảo trì
-            </p>
+        {/* Metric 2 */}
+        <div
+          style={{ transform: `scale(${m2Scale})` }}
+          className="flex items-center justify-between rounded-2xl border border-slate-700/60 bg-gradient-to-r from-slate-900/90 via-slate-950/95 to-slate-900/90 p-6 shadow-xl backdrop-blur-xl"
+        >
+          <div>
+            <span className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase">
+              TÍNH LINH HOẠT
+            </span>
+            <h3 className="mt-1 text-2xl font-bold text-white">Mở Rộng Tức Thì</h3>
+            <p className="text-sm text-slate-400">Tăng giảm tài nguyên chỉ trong vài giây</p>
           </div>
+          <div className="text-right">
+            <span className="text-5xl font-black tracking-tight text-emerald-400 font-mono">
+              &lt; 60s
+            </span>
+            <span className="block text-xs font-mono text-emerald-300">Triển Khai Tức Thì</span>
+          </div>
+        </div>
 
-          {/* High Availability */}
-          <div
-            style={{ transform: `translateX(${b2X}px)` }}
-            className="flex flex-col items-center rounded-3xl border-2 border-sky-400/40 bg-sky-950/40 p-6 text-center shadow-xl backdrop-blur-md"
-          >
-            <div className="text-5xl">🌍🛡️</div>
-            <h3 className="mt-3 text-3xl font-black text-sky-300">Uptime 99.99%</h3>
-            <p className="mt-2 text-xl font-medium text-slate-200">
-              Hệ thống tự sửa lỗi &amp; backup toàn cầu
-            </p>
+        {/* Metric 3 */}
+        <div
+          style={{ transform: `scale(${m3Scale})` }}
+          className="flex items-center justify-between rounded-2xl border border-slate-700/60 bg-gradient-to-r from-slate-900/90 via-slate-950/95 to-slate-900/90 p-6 shadow-xl backdrop-blur-xl"
+        >
+          <div>
+            <span className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase">
+              ĐỘ SẴN SÀNG HỆ THỐNG
+            </span>
+            <h3 className="mt-1 text-2xl font-bold text-white">An Toàn Dữ Liệu</h3>
+            <p className="text-sm text-slate-400">Hạ tầng dự phòng liên tục 24/7/365</p>
+          </div>
+          <div className="text-right">
+            <span className="text-5xl font-black tracking-tight text-indigo-400 font-mono">
+              99.99%
+            </span>
+            <span className="block text-xs font-mono text-indigo-300">Uptime SLA</span>
           </div>
         </div>
       </div>
 
-      {/* Subtitle 1 line */}
+      {/* Subtitle */}
       <SubtitleBox
-        text="Ưu điểm lớn nhất là bạn có thể nâng cấp từ 1 lên 1.000 máy chủ chỉ sau một cú click chuột, tự động mở rộng khi có hàng triệu người dùng truy cập."
-        durationInFrames={235}
-        highlightKeyword="máy chủ"
+        text="Tối ưu tới 60% chi phí vận hành, mở rộng tài nguyên linh hoạt trong vài giây, và đảm bảo an toàn dữ liệu doanh nghiệp liên tục 99,99%."
+        durationInFrames={260}
+        highlightKeyword="tối ưu tới 60% chi phí"
         className="mt-64"
       />
     </AbsoluteFill>

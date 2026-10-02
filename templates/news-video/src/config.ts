@@ -152,9 +152,9 @@ export function loadConfig(): Config {
     vbeePollIntervalMs: intDefault("VBEE_POLL_INTERVAL_MS", 2000),
     vbeePollTimeoutMs: intDefault("VBEE_POLL_TIMEOUT_MS", 60000),
     tiktok: {
-      displayName: process.env.TIKTOK_DISPLAY_NAME ?? "Công nghệ 24h",
-      handle: process.env.TIKTOK_HANDLE ?? "@congnghe24h",
-      followers: process.env.TIKTOK_FOLLOWERS ?? "1.2M followers",
+      displayName: process.env.TIKTOK_DISPLAY_NAME ?? "PWSolutions",
+      handle: process.env.TIKTOK_HANDLE ?? "@pwsvn",
+      followers: process.env.TIKTOK_FOLLOWERS ?? "PWS Việt Nam • pwsdata.vn",
       avatarUrl: process.env.TIKTOK_AVATAR_URL || undefined,
     },
     ttsConcurrency: intDefault("TTS_CONCURRENCY", 1),

@@ -1,4 +1,4 @@
-# 🎬 AI Video Studio — Bộ 3 Template Tạo Video Tự Động Với AI
+# 🎬 AI Video Studio — PWSolutions (PWS Việt Nam)
 
 <div align="center">
 
@@ -9,25 +9,21 @@
 [![AI Skills](https://img.shields.io/badge/AI_Skills-Antigravity_%7C_Claude-purple?style=for-the-badge)](.agents/skills/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-**Monorepo hợp nhất 03 dự án Code-to-Video tự động hoá 100% bằng AI của tác giả Cường IT ([Cuongyd196](https://github.com/Cuongyd196)).**  
-Biến chủ đề, bài viết, URL hoặc cặp khái niệm thành video dọc **9:16 (TikTok, Reels, YouTube Shorts)** chuyên nghiệp chỉ với 1 câu lệnh!
+**Hệ thống Code-to-Video tự động hoá 100% bằng AI của PWSolutions ([pwsdata.vn](https://pwsdata.vn)).**  
+Biến chủ đề công nghệ, bài viết tin tức, giải pháp hạ tầng số thành video dọc **9:16 (TikTok, Reels, YouTube Shorts)** chuẩn phong cách Minimalist Tech & Corporate B2B chỉ với 1 câu lệnh!
 
-[🚀 Cài đặt nhanh](#-cài-đặt-nhanh-3-bước) • [📋 So sánh 3 Template](#-tổng-quan-03-template) • [🤖 Tích hợp AI Agent](#-tích-hợp-ai-coding-agent) • [🎙️ Cấu hình Voice TTS](#️-cấu-hình-giọng-đọc-tts) • [💬 Tác giả & Hỗ trợ](#-tác-giả--cộng-đồng)
+[🌐 Website PWS](https://pwsdata.vn) • [🔵 Fanpage PWS](https://www.facebook.com/pwsvn) • [🚀 Cài đặt nhanh](#-cài-đặt-nhanh-3-bước) • [📋 So sánh 3 Template](#-tổng-quan-03-template) • [🤖 Tích hợp AI Agent](#-tích-hợp-ai-coding-agent)
 
 </div>
 
 ---
 
-## 👨‍💻 Tác giả & Lời ngỏ
+## 🏢 Đơn vị phát triển: PWSolutions / PWS Việt Nam
 
-> *"Chào các bạn. Mình chia sẻ lại bài tổng hợp về 03 dự án mình đã sử dụng để làm video tự động với AI sử dụng Remotion và HyperFrames. Dạng này là Code to Video nhé anh em. Mình đã sử dụng trực tiếp cho các kênh của mình trên các nền tảng... Triệu view thì chưa có nhưng hơn 100k view và mấy chục k view thì nhiều rồi."*  
-> — **Cường IT ([Cuongyd196](https://github.com/Cuongyd196))**
-
-- **Tác giả:** [Cường IT (Cuongyd196)](https://www.facebook.com/cuongit96/)
-- 🎵 **TikTok:** [@cuongit96](https://www.tiktok.com/@cuongit96)
-- 🌐 **Facebook Reels:** [Cường IT Reels](https://www.facebook.com/cuongit96/reels/)
-- 👥 **Nhóm Facebook:** [Cộng đồng AI Video](https://www.facebook.com/groups/1010029065373486/)
-- 👥 **Nhóm Zalo:** [Giao lưu & Hỗ trợ Zalo](https://zalo.me/g/8bfeotyh5ewtkzxmp5gt)
+- 🌐 **Website:** [https://pwsdata.vn](https://pwsdata.vn)
+- 🔵 **Fanpage:** [PWS Việt Nam (facebook.com/pwsvn)](https://www.facebook.com/pwsvn)
+- 💼 **Lĩnh vực hoạt động:** Giải pháp máy chủ chuyên dụng, Điện toán đám mây (Cloud Server / Cloud Storage), Sao lưu dự phòng & Bảo vệ an toàn dữ liệu doanh nghiệp (Backup & Disaster Recovery).
+- 🎬 **Hệ thống AI Video:** Được tùy biến và vận hành dựa trên kiến trúc Monorepo 3 template Remotion & HyperFrames.
 
 ---
 
@@ -44,7 +40,7 @@ Repo này sử dụng kiến trúc **NPM Workspaces** tích hợp trọn vẹn c
 | **Bố cục Video** | 6 cảnh chuẩn tâm lý (Hook, Pain, Solution, Flow, Benefits, Outro) | 6 layout đồ họa: Breaking news, Stat callout, Split screen, Quote card, Listicle, Big number | 3-Zone cố định: 2 Card so sánh (trên) + Phụ đề động (giữa) + Avatar Robot MC cử động (dưới) |
 | **Voiceover (TTS)** | Edge TTS (Miễn phí, 0đ API) | Edge TTS, LucyLab, ElevenLabs, Vbee | Edge TTS, VieNeu TTS (Local), Vbee |
 | **AI Skill lệnh** | `/remotion-topic-explainer` | `/create-news-video` | `/create-compare-video` |
-| **Mẫu demo có sẵn** | Docker Explainer (50-60s) | CodeGraph Demo, OpenScreen Demo | Dev vs DevOps, Thiên thạch vs Sao băng |
+| **Mẫu demo có sẵn** | Cloud Explainer (PWSolutions 49s), Docker Explainer | CodeGraph Demo, OpenScreen Demo | Dev vs DevOps, Thiên thạch vs Sao băng |
 
 ---
 

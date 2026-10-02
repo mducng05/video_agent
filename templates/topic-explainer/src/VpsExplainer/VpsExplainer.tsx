@@ -6,17 +6,17 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { CloudExplainerProps } from "./types";
+import { VpsExplainerProps } from "./types";
 import { audioManifest } from "./audioData";
 import { Scene1Hook } from "./scenes/Scene1Hook";
 import { Scene2Problem } from "./scenes/Scene2Problem";
-import { Scene3Concept1 } from "./scenes/Scene3Concept1";
-import { Scene4Concept2 } from "./scenes/Scene4Concept2";
+import { Scene3Concept } from "./scenes/Scene3Concept";
+import { Scene4PwsShowcase } from "./scenes/Scene4PwsShowcase";
 import { Scene5Benefits } from "./scenes/Scene5Benefits";
 import { Scene6Outro } from "./scenes/Scene6Outro";
 import { BrandHeader } from "./components/BrandHeader";
 
-export const CloudExplainer: React.FC<CloudExplainerProps> = () => {
+export const VpsExplainer: React.FC<VpsExplainerProps> = () => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
 
@@ -54,37 +54,37 @@ export const CloudExplainer: React.FC<CloudExplainerProps> = () => {
 
       {/* Background Animated Subtle Glows */}
       <div className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-cyan-600/15 blur-[140px]" />
-      <div className="absolute top-1/2 -right-40 h-[700px] w-[700px] rounded-full bg-indigo-600/15 blur-[160px]" />
-      <div className="absolute -bottom-40 left-1/4 h-[600px] w-[600px] rounded-full bg-blue-600/15 blur-[140px]" />
+      <div className="absolute top-1/2 -right-40 h-[700px] w-[700px] rounded-full bg-blue-600/15 blur-[160px]" />
+      <div className="absolute -bottom-40 left-1/4 h-[600px] w-[600px] rounded-full bg-indigo-600/15 blur-[140px]" />
 
       {/* Series of 6 Scenes */}
       <Series>
-        {/* Scene 1: Hook (0s - 5.2s) */}
+        {/* Scene 1: Hook */}
         <Series.Sequence durationInFrames={d1}>
           <Scene1Hook />
         </Series.Sequence>
 
-        {/* Scene 2: Problem (5.2s - 14.1s) */}
+        {/* Scene 2: Problem */}
         <Series.Sequence durationInFrames={d2}>
           <Scene2Problem />
         </Series.Sequence>
 
-        {/* Scene 3: Concept 1 (14.1s - 24.7s) */}
+        {/* Scene 3: Concept */}
         <Series.Sequence durationInFrames={d3}>
-          <Scene3Concept1 />
+          <Scene3Concept />
         </Series.Sequence>
 
-        {/* Scene 4: Concept 2 (24.7s - 35.1s) */}
+        {/* Scene 4: PWS Cloud VPS Showcase */}
         <Series.Sequence durationInFrames={d4}>
-          <Scene4Concept2 />
+          <Scene4PwsShowcase />
         </Series.Sequence>
 
-        {/* Scene 5: Benefits (35.1s - 43.0s) */}
+        {/* Scene 5: Benefits & SLA */}
         <Series.Sequence durationInFrames={d5}>
           <Scene5Benefits />
         </Series.Sequence>
 
-        {/* Scene 6: Outro & CTA (43.0s - 51.3s) */}
+        {/* Scene 6: Outro & CTA */}
         <Series.Sequence durationInFrames={d6}>
           <Scene6Outro />
         </Series.Sequence>

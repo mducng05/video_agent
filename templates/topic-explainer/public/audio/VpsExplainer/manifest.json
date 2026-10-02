@@ -1,0 +1,65 @@
+{
+  "topic": "VpsExplainer",
+  "voice": "vi-VN-NamMinhNeural",
+  "rate": "+10%",
+  "totalScenes": 6,
+  "totalDurationFrames": 1391,
+  "totalDurationSec": 46.4,
+  "scenes": [
+    {
+      "id": "scene1_hook",
+      "text": "Bạn muốn website hoặc ứng dụng chạy mượt mà, nhưng chi phí thuê máy chủ riêng lại quá đắt đỏ?",
+      "audioPath": "audio/VpsExplainer/scene1_hook.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\VpsExplainer\\scene1_hook.mp3",
+      "sizeBytes": 32400,
+      "estimatedDurationSec": 5.4,
+      "durationInFrames": 173
+    },
+    {
+      "id": "scene2_problem",
+      "text": "Shared Hosting giá rẻ thì liên tục nghẽn mạng và thiếu bảo mật, còn thuê máy chủ vật lý riêng lại tốn hàng chục triệu mỗi tháng.",
+      "audioPath": "audio/VpsExplainer/scene2_problem.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\VpsExplainer\\scene2_problem.mp3",
+      "sizeBytes": 39600,
+      "estimatedDurationSec": 6.6,
+      "durationInFrames": 209
+    },
+    {
+      "id": "scene3_concept",
+      "text": "Giải pháp hoàn hảo chính là VPS - Máy chủ ảo riêng biệt, phân chia tài nguyên độc lập từ cụm máy chủ vật lý bằng công nghệ ảo hóa.",
+      "audioPath": "audio/VpsExplainer/scene3_concept.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\VpsExplainer\\scene3_concept.mp3",
+      "sizeBytes": 44208,
+      "estimatedDurationSec": 7.37,
+      "durationInFrames": 232
+    },
+    {
+      "id": "scene4_pwsshowcase",
+      "text": "Cloud VPS tại PWSolutions được trang bị ổ cứng chuẩn Enterprise NVMe SSD siêu tốc, đường truyền băng thông mười Gbps và chống DDoS tự động.",
+      "audioPath": "audio/VpsExplainer/scene4_pwsshowcase.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\VpsExplainer\\scene4_pwsshowcase.mp3",
+      "sizeBytes": 50400,
+      "estimatedDurationSec": 8.4,
+      "durationInFrames": 262
+    },
+    {
+      "id": "scene5_benefits",
+      "text": "Toàn quyền quản trị root, khởi tạo tự động trong 60 giây, cam kết uptime 99,99% cùng đội ngũ kỹ thuật hỗ trợ 24/7.",
+      "audioPath": "audio/VpsExplainer/scene5_benefits.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\VpsExplainer\\scene5_benefits.mp3",
+      "sizeBytes": 52704,
+      "estimatedDurationSec": 8.78,
+      "durationInFrames": 274
+    },
+    {
+      "id": "scene6_outro",
+      "text": "Nâng tầm hạ tầng doanh nghiệp cùng PWSolutions ngay hôm nay. Truy cập pwsdata.vn để nhận ưu đãi Cloud VPS tốt nhất!",
+      "audioPath": "audio/VpsExplainer/scene6_outro.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\VpsExplainer\\scene6_outro.mp3",
+      "sizeBytes": 46080,
+      "estimatedDurationSec": 7.68,
+      "durationInFrames": 241
+    }
+  ],
+  "generatedAt": "2026-10-01T02:22:13.843Z"
+}

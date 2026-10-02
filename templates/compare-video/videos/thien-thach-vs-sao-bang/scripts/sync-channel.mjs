@@ -30,7 +30,7 @@ function loadEnv() {
 }
 
 const env = loadEnv();
-const CHANNEL = env.CHANNEL || env.CHANNEL_NAME || "CƯỜNG IT";
+const CHANNEL = env.CHANNEL || env.CHANNEL_NAME || "PWSolutions";
 
 const indexPath = path.join(ROOT, "index.html");
 const html = fs.readFileSync(indexPath, "utf8");
