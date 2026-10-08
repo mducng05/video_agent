@@ -8,6 +8,10 @@ import { DevOpsExplainer } from "./DevOpsExplainer/DevOpsExplainer";
 import { devopsExplainerSchema } from "./DevOpsExplainer/types";
 import { MicroservicesExplainer } from "./MicroservicesExplainer/MicroservicesExplainer";
 import { microservicesExplainerSchema } from "./MicroservicesExplainer/types";
+import { DatabaseExplainer } from "./DatabaseExplainer/DatabaseExplainer";
+import { databaseExplainerSchema } from "./DatabaseExplainer/types";
+import { AuthExplainer } from "./AuthExplainer/AuthExplainer";
+import { authExplainerSchema } from "./AuthExplainer/types";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -69,6 +73,36 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           title: "Giải phẫu Kiến trúc Microservices triệu Request/s",
           subtitle: "Từ NGINX Gateway đến Kafka Event-Driven",
+        }}
+      />
+
+      {/* 98s (~1.7m) AI Voice Explainer: Tối Ưu Hóa Database Query (White-Blue Gradient & Multi-Layout Edition) */}
+      <Composition
+        id="DatabaseExplainer"
+        component={DatabaseExplainer}
+        durationInFrames={2947}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={databaseExplainerSchema}
+        defaultProps={{
+          title: "Bí mật Tối ưu hóa Database Query",
+          subtitle: "Từ Chậm Rùa 10 Giây xuống Millisecond",
+        }}
+      />
+
+      {/* 119s (~2m) AI Voice Explainer: Giải mã JWT vs Session Cookie (White-Blue Gradient Large Font Edition) */}
+      <Composition
+        id="AuthExplainer"
+        component={AuthExplainer}
+        durationInFrames={3567}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={authExplainerSchema}
+        defaultProps={{
+          title: "Giải mã JWT vs Session Cookie",
+          subtitle: "Đâu là Tiêu chuẩn Bảo mật cho Ứng dụng hiện đại?",
         }}
       />
     </>

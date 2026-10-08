@@ -1,0 +1,83 @@
+{
+  "topic": "AuthExplainer",
+  "voice": "vi-VN-NamMinhNeural",
+  "rate": "+10%",
+  "totalScenes": 8,
+  "totalDurationFrames": 3529,
+  "totalDurationSec": 117.6,
+  "scenes": [
+    {
+      "id": "scene1_hook",
+      "text": "Khi xây dựng ứng dụng hiện đại, hàng triệu lập trình viên luôn đau đầu: Nên chọn JSON Web Token không trạng thái hay Session Cookie truyền thống? Đâu mới là tiêu chuẩn bảo mật tối ưu nhất cho hệ thống của bạn?",
+      "audioPath": "audio/AuthExplainer/scene1_hook.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\AuthExplainer\\scene1_hook.mp3",
+      "sizeBytes": 71568,
+      "estimatedDurationSec": 11.93,
+      "durationInFrames": 368
+    },
+    {
+      "id": "scene2_session",
+      "text": "Hãy bắt đầu với Session Cookie: Sau khi đăng nhập, Server lưu Session ID vào Database hoặc RAM Redis, đồng thời gửi Cookie có cờ HttpOnly về trình duyệt. Cơ chế này giúp Server nắm quyền kiểm soát tuyệt đối, có thể hủy phiên ngay lập tức khi phát hiện tài khoản bị hack.",
+      "audioPath": "audio/AuthExplainer/scene2_session.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\AuthExplainer\\scene2_session.mp3",
+      "sizeBytes": 89856,
+      "estimatedDurationSec": 14.98,
+      "durationInFrames": 460
+    },
+    {
+      "id": "scene3_session_flaws",
+      "text": "Tuy nhiên, Session gặp trở ngại lớn khi mở rộng hệ thống sang đa cụm máy chủ Microservices. Server phải đồng bộ bộ nhớ tập trung, đồng thời ứng dụng luôn phải đối mặt với nguy cơ tấn công CSRF nếu không cấu hình SameSite nghiêm ngặt.",
+      "audioPath": "audio/AuthExplainer/scene3_session_flaws.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\AuthExplainer\\scene3_session_flaws.mp3",
+      "sizeBytes": 80928,
+      "estimatedDurationSec": 13.49,
+      "durationInFrames": 415
+    },
+    {
+      "id": "scene4_jwt",
+      "text": "Ngược lại, JWT hoàn toàn Stateless! Token gồm ba phần: Header, Payload và Chữ ký mật mã. Server không cần lưu phiên trong bộ nhớ mà chỉ cần giải mã chữ ký để xác thực, giúp hệ thống mở rộng quy mô không giới hạn trên hàng trăm cụm Cloud Server.",
+      "audioPath": "audio/AuthExplainer/scene4_jwt.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\AuthExplainer\\scene4_jwt.mp3",
+      "sizeBytes": 95472,
+      "estimatedDurationSec": 15.91,
+      "durationInFrames": 488
+    },
+    {
+      "id": "scene5_jwt_risks",
+      "text": "Nhưng cẩn thận! Điểm yếu chí mạng của JWT là không thể thu hồi trước hạn. Nếu token bị lộ, hacker có thể tự do truy cập cho đến khi token hết hạn. Hơn nữa, lưu JWT ở LocalStorage sẽ khiến bạn phơi mình trước các cuộc tấn công XSS đánh cắp dữ liệu.",
+      "audioPath": "audio/AuthExplainer/scene5_jwt_risks.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\AuthExplainer\\scene5_jwt_risks.mp3",
+      "sizeBytes": 107136,
+      "estimatedDurationSec": 17.86,
+      "durationInFrames": 546
+    },
+    {
+      "id": "scene6_hybrid",
+      "text": "Vậy giải pháp tối ưu của các chuyên gia là gì? Hãy kết hợp cả hai! Dùng Access Token JWT ngắn hạn chỉ năm phút, kèm Refresh Token được lưu trong HttpOnly Cookie bảo mật, kết hợp cơ chế Token Rotation để bảo vệ an toàn tuyệt đối.",
+      "audioPath": "audio/AuthExplainer/scene6_hybrid.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\AuthExplainer\\scene6_hybrid.mp3",
+      "sizeBytes": 90720,
+      "estimatedDurationSec": 15.12,
+      "durationInFrames": 464
+    },
+    {
+      "id": "scene7_matrix",
+      "text": "Tóm lại: Chọn Session Cookie cho ứng dụng Web nguyên khối truyền thống, yêu cầu thu hồi quyền tức thì. Chọn kiến trúc JWT cho ứng dụng Mobile, API công khai và hệ thống Microservices phân tán nhiều domain.",
+      "audioPath": "audio/AuthExplainer/scene7_matrix.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\AuthExplainer\\scene7_matrix.mp3",
+      "sizeBytes": 76176,
+      "estimatedDurationSec": 12.7,
+      "durationInFrames": 391
+    },
+    {
+      "id": "scene8_outro",
+      "text": "Bảo vệ hệ thống và tối ưu hạ tầng ứng dụng của bạn cùng PWSolutions. Chúng tôi cung cấp Cloud Server NVMe bảo mật cao và tư vấn kiến trúc chuẩn doanh nghiệp. Truy cập ngay pwsdata.vn để nâng tầm bảo mật hệ thống!",
+      "audioPath": "audio/AuthExplainer/scene8_outro.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\AuthExplainer\\scene8_outro.mp3",
+      "sizeBytes": 77328,
+      "estimatedDurationSec": 12.89,
+      "durationInFrames": 397
+    }
+  ],
+  "generatedAt": "2026-10-08T07:51:13.194Z"
+}

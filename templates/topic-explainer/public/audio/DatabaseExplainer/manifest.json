@@ -1,0 +1,74 @@
+{
+  "topic": "DatabaseExplainer",
+  "voice": "vi-VN-NamMinhNeural",
+  "rate": "+10%",
+  "totalScenes": 7,
+  "totalDurationFrames": 2911,
+  "totalDurationSec": 97,
+  "scenes": [
+    {
+      "id": "scene1_hook",
+      "text": "Tại sao database của bạn lại chạy chậm như rùa bò, query mất tới 10 giây khiến toàn bộ ứng dụng bị tê liệt? Hãy khám phá bí mật tối ưu hóa câu lệnh SQL từ 10 giây xuống chỉ vài mili giây ngay sau đây!",
+      "audioPath": "audio/DatabaseExplainer/scene1_hook.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\DatabaseExplainer\\scene1_hook.mp3",
+      "sizeBytes": 69840,
+      "estimatedDurationSec": 11.64,
+      "durationInFrames": 360
+    },
+    {
+      "id": "scene2_explain",
+      "text": "Bước đầu tiên của mọi kỹ sư: Đừng đoán mò, hãy chạy lệnh EXPLAIN ANALYZE! Công cụ này sẽ vạch trần việc cơ sở dữ liệu đang phải quét cạn toàn bộ hàng triệu dòng dữ liệu bằng Sequential Scan, làm nghẽn toàn bộ ổ đĩa I/O.",
+      "audioPath": "audio/DatabaseExplainer/scene2_explain.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\DatabaseExplainer\\scene2_explain.mp3",
+      "sizeBytes": 84384,
+      "estimatedDurationSec": 14.06,
+      "durationInFrames": 432
+    },
+    {
+      "id": "scene3_btree",
+      "text": "Bí mật thứ hai: Đánh Index thông minh với B-Tree. Thay vì quét tuần tự từng dòng, cấu trúc B-Tree giúp database tìm đúng bản ghi theo cấp số nhân Log N. Đặc biệt, hãy kết hợp Composite Index cho các trường thường xuyên nằm trong WHERE và ORDER BY.",
+      "audioPath": "audio/DatabaseExplainer/scene3_btree.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\DatabaseExplainer\\scene3_btree.mp3",
+      "sizeBytes": 88992,
+      "estimatedDurationSec": 14.83,
+      "durationInFrames": 455
+    },
+    {
+      "id": "scene4_sqldiff",
+      "text": "Bí mật thứ ba: Tiêu diệt triệt để SELECT sao và lỗi N cộng một! SELECT sao ép cơ sở dữ liệu đọc toàn bộ cột thô và làm phình to băng thông mạng. Hãy chỉ lấy đúng cột cần thiết và tận dụng Covering Index để trả dữ liệu siêu tốc ngay từ bộ nhớ RAM.",
+      "audioPath": "audio/DatabaseExplainer/scene4_sqldiff.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\DatabaseExplainer\\scene4_sqldiff.mp3",
+      "sizeBytes": 99216,
+      "estimatedDurationSec": 16.54,
+      "durationInFrames": 507
+    },
+    {
+      "id": "scene5_cache",
+      "text": "Bí mật thứ tư: Bộ đệm In-Memory và tách luồng Đọc Ghi. Đưa 90% truy vấn đọc lặp lại vào Redis Cache và định tuyến traffic sang cụm Read Replica, giúp Database Master luôn nhẹ tải và sẵn sàng ghi dữ liệu.",
+      "audioPath": "audio/DatabaseExplainer/scene5_cache.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\DatabaseExplainer\\scene5_cache.mp3",
+      "sizeBytes": 77040,
+      "estimatedDurationSec": 12.84,
+      "durationInFrames": 396
+    },
+    {
+      "id": "scene6_metrics",
+      "text": "Kết quả kinh ngạc sau khi áp dụng chuỗi tối ưu: Thời gian thực thi giảm từ 10,2 giây xuống chỉ còn 3,8 mili giây, giảm 86% tải CPU và hệ thống đáp ứng mượt mà hàng chục nghìn truy vấn đồng thời!",
+      "audioPath": "audio/DatabaseExplainer/scene6_metrics.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\DatabaseExplainer\\scene6_metrics.mp3",
+      "sizeBytes": 68400,
+      "estimatedDurationSec": 11.4,
+      "durationInFrames": 352
+    },
+    {
+      "id": "scene7_outro",
+      "text": "Bạn đang đau đầu vì database chậm chạp hay hạ tầng nghẽn tải? PWSolutions cung cấp giải pháp Cloud Server hiệu năng cao và tư vấn tối ưu cơ sở dữ liệu chuyên sâu. Truy cập ngay pwsdata.vn để tăng tốc hệ thống của bạn!",
+      "audioPath": "audio/DatabaseExplainer/scene7_outro.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\DatabaseExplainer\\scene7_outro.mp3",
+      "sizeBytes": 79776,
+      "estimatedDurationSec": 13.3,
+      "durationInFrames": 409
+    }
+  ],
+  "generatedAt": "2026-10-08T07:24:39.842Z"
+}
