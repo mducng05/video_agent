@@ -4,6 +4,10 @@ import { CloudExplainer } from "./CloudExplainer/CloudExplainer";
 import { cloudExplainerSchema } from "./CloudExplainer/types";
 import { VpsExplainer } from "./VpsExplainer/VpsExplainer";
 import { vpsExplainerSchema } from "./VpsExplainer/types";
+import { DevOpsExplainer } from "./DevOpsExplainer/DevOpsExplainer";
+import { devopsExplainerSchema } from "./DevOpsExplainer/types";
+import { MicroservicesExplainer } from "./MicroservicesExplainer/MicroservicesExplainer";
+import { microservicesExplainerSchema } from "./MicroservicesExplainer/types";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -35,6 +39,36 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           title: "VPS là gì?",
           subtitle: "Giải pháp Cloud VPS tối ưu cùng PWSolutions",
+        }}
+      />
+
+      {/* 51s AI Voice Explainer: CI/CD Pipeline với Docker & Kubernetes (White-Cyan Gradient Edition) */}
+      <Composition
+        id="DevOpsExplainer"
+        component={DevOpsExplainer}
+        durationInFrames={1528}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={devopsExplainerSchema}
+        defaultProps={{
+          title: "Tự động hóa CI/CD với Docker & Kubernetes",
+          subtitle: "Từ Git Push đến Production trong 2 phút",
+        }}
+      />
+
+      {/* 52s AI Voice Explainer: Kiến trúc Microservices Triệu Request/s (High-Impact Large HUD Edition) */}
+      <Composition
+        id="MicroservicesExplainer"
+        component={MicroservicesExplainer}
+        durationInFrames={1573}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={microservicesExplainerSchema}
+        defaultProps={{
+          title: "Giải phẫu Kiến trúc Microservices triệu Request/s",
+          subtitle: "Từ NGINX Gateway đến Kafka Event-Driven",
         }}
       />
     </>
