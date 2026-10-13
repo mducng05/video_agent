@@ -12,6 +12,8 @@ import { DatabaseExplainer } from "./DatabaseExplainer/DatabaseExplainer";
 import { databaseExplainerSchema } from "./DatabaseExplainer/types";
 import { AuthExplainer } from "./AuthExplainer/AuthExplainer";
 import { authExplainerSchema } from "./AuthExplainer/types";
+import { ReactNativeExplainer } from "./ReactNativeExplainer/ReactNativeExplainer";
+import { reactNativeExplainerSchema } from "./ReactNativeExplainer/types";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -103,6 +105,21 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           title: "Giải mã JWT vs Session Cookie",
           subtitle: "Đâu là Tiêu chuẩn Bảo mật cho Ứng dụng hiện đại?",
+        }}
+      />
+
+      {/* 97s (~1.6m) AI Voice Explainer: Giải mã React Native (White-Blue Gradient Large Font Edition) */}
+      <Composition
+        id="ReactNativeExplainer"
+        component={ReactNativeExplainer}
+        durationInFrames={2918}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={reactNativeExplainerSchema}
+        defaultProps={{
+          title: "Giải mã Công nghệ React Native",
+          subtitle: "Từ JavaScript đến Ứng dụng Di động Native 60 FPS",
         }}
       />
     </>

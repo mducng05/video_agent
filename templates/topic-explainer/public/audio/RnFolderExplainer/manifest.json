@@ -1,0 +1,83 @@
+{
+  "topic": "RnFolderExplainer",
+  "voice": "vi-VN-NamMinhNeural",
+  "rate": "+10%",
+  "totalScenes": 8,
+  "totalDurationFrames": 3213,
+  "totalDurationSec": 107.1,
+  "scenes": [
+    {
+      "id": "scene1_hook",
+      "text": "Bạn có đang phát điên khi dự án React Native phình to: Hàng chục màn hình vứt bừa bãi, file code dài hàng nghìn dòng và import chấm chấm gạch chéo vô tận? Hãy cùng chuẩn hóa cấu trúc thư mục chuẩn Clean Architecture ngay sau đây!",
+      "audioPath": "audio/RnFolderExplainer/scene1_hook.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\RnFolderExplainer\\scene1_hook.mp3",
+      "sizeBytes": 74736,
+      "estimatedDurationSec": 12.46,
+      "durationInFrames": 384
+    },
+    {
+      "id": "scene2_philosophy",
+      "text": "Sai lầm lớn nhất của người mới là chia thư mục theo tầng kỹ thuật như components, screens, services. Khi dự án lớn lên, bạn phải nhảy qua lại giữa hàng chục folder chỉ để sửa một nút bấm! Giải pháp chân ái chính là kiến trúc Feature-First.",
+      "audioPath": "audio/RnFolderExplainer/scene2_philosophy.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\RnFolderExplainer\\scene2_philosophy.mp3",
+      "sizeBytes": 83952,
+      "estimatedDurationSec": 13.99,
+      "durationInFrames": 430
+    },
+    {
+      "id": "scene3_src_tree",
+      "text": "Bộ khung chuẩn của thư mục src gồm có: app chứa cấu hình điều hướng navigation, components chứa giao diện dùng chung, features chứa toàn bộ nghiệp vụ theo từng chức năng, services xử lý gọi API, và theme quản lý màu sắc phông chữ.",
+      "audioPath": "audio/RnFolderExplainer/scene3_src_tree.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\RnFolderExplainer\\scene3_src_tree.mp3",
+      "sizeBytes": 77472,
+      "estimatedDurationSec": 12.91,
+      "durationInFrames": 398
+    },
+    {
+      "id": "scene4_feature_anatomy",
+      "text": "Hãy giải phẫu một tính năng: Ví dụ thư mục features xuyệt auth, bên trong sẽ tự gói gọn các màn hình screens, linh kiện components riêng, hook xử lý logic, api gọi máy chủ và file index đóng vai trò cổng giao tiếp duy nhất ra bên ngoài.",
+      "audioPath": "audio/RnFolderExplainer/scene4_feature_anatomy.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\RnFolderExplainer\\scene4_feature_anatomy.mp3",
+      "sizeBytes": 77760,
+      "estimatedDurationSec": 12.96,
+      "durationInFrames": 399
+    },
+    {
+      "id": "scene5_path_aliases",
+      "text": "Để xóa sổ địa ngục import chấm chấm xuyệt, hãy cấu hình Path Aliases trong TypeScript! Bạn có thể gọi thẳng a còng components hay a còng features ở bất kỳ đâu, giúp mã nguồn sạch đẹp, dễ tái cấu trúc và chống gãy liên kết khi di chuyển file.",
+      "audioPath": "audio/RnFolderExplainer/scene5_path_aliases.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\RnFolderExplainer\\scene5_path_aliases.mp3",
+      "sizeBytes": 83088,
+      "estimatedDurationSec": 13.85,
+      "durationInFrames": 426
+    },
+    {
+      "id": "scene6_separation",
+      "text": "Nguyên tắc sống còn: Tách biệt hoàn toàn giao diện và logic! Màn hình screen chỉ làm nhiệm vụ hiển thị giao diện, đẩy toàn bộ xử lý nghiệp vụ vào Custom Hooks, và sử dụng Zustand hoặc React Query để quản lý dữ liệu máy chủ tối ưu.",
+      "audioPath": "audio/RnFolderExplainer/scene6_separation.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\RnFolderExplainer\\scene6_separation.mp3",
+      "sizeBytes": 78480,
+      "estimatedDurationSec": 13.08,
+      "durationInFrames": 403
+    },
+    {
+      "id": "scene7_rules",
+      "text": "Bốn quy tắc vàng cho dự án quy mô lớn: Giới hạn mỗi file dưới hai trăm dòng, tuyệt đối không import chéo phụ thuộc giữa các feature, dùng barrel export kiểm soát quyền truy cập, và đặt file test ngay cạnh component cần kiểm thử.",
+      "audioPath": "audio/RnFolderExplainer/scene7_rules.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\RnFolderExplainer\\scene7_rules.mp3",
+      "sizeBytes": 70992,
+      "estimatedDurationSec": 11.83,
+      "durationInFrames": 365
+    },
+    {
+      "id": "scene8_outro",
+      "text": "Xây dựng ứng dụng di động chuẩn kiến trúc Clean Architecture cùng PWSolutions. Chúng tôi cung cấp giải pháp phát triển Mobile App và hạ tầng Cloud Server hiệu năng cao. Truy cập ngay pwsdata.vn để nâng tầm dự án của bạn!",
+      "audioPath": "audio/RnFolderExplainer/scene8_outro.mp3",
+      "filePath": "C:\\laragon\\www\\create_video\\templates\\topic-explainer\\public\\audio\\RnFolderExplainer\\scene8_outro.mp3",
+      "sizeBytes": 79488,
+      "estimatedDurationSec": 13.25,
+      "durationInFrames": 408
+    }
+  ],
+  "generatedAt": "2026-10-12T10:35:18.074Z"
+}
