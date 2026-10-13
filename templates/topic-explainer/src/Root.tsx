@@ -14,6 +14,10 @@ import { AuthExplainer } from "./AuthExplainer/AuthExplainer";
 import { authExplainerSchema } from "./AuthExplainer/types";
 import { ReactNativeExplainer } from "./ReactNativeExplainer/ReactNativeExplainer";
 import { reactNativeExplainerSchema } from "./ReactNativeExplainer/types";
+import { FlutterExplainer } from "./FlutterExplainer/FlutterExplainer";
+import { flutterExplainerSchema } from "./FlutterExplainer/types";
+import { AiDevExplainer } from "./AiDevExplainer/AiDevExplainer";
+import { aiDevExplainerSchema } from "./AiDevExplainer/types";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -120,6 +124,36 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           title: "Giải mã Công nghệ React Native",
           subtitle: "Từ JavaScript đến Ứng dụng Di động Native 60 FPS",
+        }}
+      />
+
+      {/* 122s (~2m) AI Voice Explainer: Flutter Là Gì? (Deep Cyber Navy & Multi-Model Architecture Edition) */}
+      <Composition
+        id="FlutterExplainer"
+        component={FlutterExplainer}
+        durationInFrames={3675}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={flutterExplainerSchema}
+        defaultProps={{
+          title: "Flutter Là Gì?",
+          subtitle: "Bản Đồ Kiến Trúc & Cỗ Máy Đồ Họa Đa Nền Tảng",
+        }}
+      />
+
+      {/* 112s (~1.9m) AI Voice Explainer: AI Trong Cuộc Sống Developer (Cyber Purple & AI Workflow Edition) */}
+      <Composition
+        id="AiDevExplainer"
+        component={AiDevExplainer}
+        durationInFrames={3374}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={aiDevExplainerSchema}
+        defaultProps={{
+          title: "AI Trong Cuộc Sống Developer",
+          subtitle: "Một Ngày Làm Việc Thực Tế Tại Công Ty Công Nghệ",
         }}
       />
     </>
