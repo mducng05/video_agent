@@ -22,6 +22,9 @@ const ComparisonData = z.object({
   template: z.literal("comparison"),
   left: ComparisonSide,
   right: ComparisonSide.extend({ winner: z.boolean().optional() }),
+  bgSrc: z.string().optional(),
+  kenBurns: z.enum(["zoom-in", "zoom-out", "pan-left", "pan-right"]).optional(),
+  image: z.string().optional(),
 });
 
 const StatHeroData = z.object({
@@ -29,6 +32,9 @@ const StatHeroData = z.object({
   value: z.string().min(1).max(20),
   label: z.string().min(1).max(40),
   context: z.string().max(50).optional(),
+  bgSrc: z.string().optional(),
+  kenBurns: z.enum(["zoom-in", "zoom-out", "pan-left", "pan-right"]).optional(),
+  image: z.string().optional(),
 });
 
 const FeatureListData = z.object({
@@ -36,12 +42,18 @@ const FeatureListData = z.object({
   title: z.string().min(1).max(40),
   bullets: z.array(z.string().min(1).max(50)).min(1).max(4),
   icon: z.string().optional(),
+  bgSrc: z.string().optional(),
+  kenBurns: z.enum(["zoom-in", "zoom-out", "pan-left", "pan-right"]).optional(),
+  image: z.string().optional(),
 });
 
 const CalloutData = z.object({
   template: z.literal("callout"),
   statement: z.string().min(1).max(80),
   tag: z.string().max(20).optional(),
+  bgSrc: z.string().optional(),
+  kenBurns: z.enum(["zoom-in", "zoom-out", "pan-left", "pan-right"]).optional(),
+  image: z.string().optional(),
 });
 
 const OutroData = z.object({
@@ -49,6 +61,9 @@ const OutroData = z.object({
   ctaTop: z.string().min(1).max(30),
   channelName: z.string().min(1).max(30),
   source: z.string().min(1).max(40),
+  bgSrc: z.string().optional(),
+  kenBurns: z.enum(["zoom-in", "zoom-out", "pan-left", "pan-right"]).optional(),
+  image: z.string().optional(),
 });
 
 export const TemplateData = z.discriminatedUnion("template", [

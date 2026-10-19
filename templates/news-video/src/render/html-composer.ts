@@ -157,21 +157,33 @@ function renderScene(
   return buildScene(scene, start, duration, layoutName, inner);
 }
 
+// ── HELPERS FOR MEDIA ──────────────────────────────────────────────────────
+function renderSceneBg(bgSrc?: string, kenBurns?: "zoom-in" | "zoom-out" | "pan-left" | "pan-right"): string {
+  if (!bgSrc) return "";
+  const kbClass = kenBurns ?? "zoom-in";
+  return `
+<div class="bg kb-${kbClass}" style="background-image: url('${escapeHtml(bgSrc)}')"></div>
+<div class="overlay" style="opacity: 0.65"></div>`.trim();
+}
+
+function renderMediaCard(image?: string): string {
+  if (!image) return "";
+  return `<div class="scene-media-card"><img src="${escapeHtml(image)}" alt="Media" /></div>`;
+}
+
 // ── HOOK SCENE ─────────────────────────────────────────────────────────────
 function renderHookInner(td: Extract<TemplateDataType, { template: "hook" }>, bgImageRelPath: string | null): string {
   // Background
-  const hasImage = Boolean(td.bgSrc && bgImageRelPath);
+  const imgSrc = td.bgSrc || bgImageRelPath;
+  const hasImage = Boolean(imgSrc);
   let bgHtml: string;
   if (hasImage) {
     // Ken Burns image
     const kbClass = td.kenBurns ?? "zoom-in";
-    bgHtml = `<div class="bg kb-${kbClass}" style="background-image: url('${bgImageRelPath}')"></div>`;
+    bgHtml = `<div class="bg kb-${kbClass}" style="background-image: url('${escapeHtml(imgSrc!)}')"></div>`;
   } else {
     bgHtml = `<div class="bg gradient-news-dark"></div>`;
   }
-  // Only darken when there's a real photo to tame for text legibility —
-  // our own gradient backgrounds are already tuned for contrast, and a flat
-  // black scrim on top of them just muddies the theme's colors (esp. light-pro).
   const overlayHtml = hasImage ? `<div class="overlay" style="opacity: 0.55"></div>` : "";
 
   const headline = escapeHtml(td.headline);
@@ -190,9 +202,13 @@ function renderComparisonInner(td: Extract<TemplateDataType, { template: "compar
   const lColor = td.left.color;  // "cyan" | "purple"
   const rColor = td.right.color;
   const winnerClass = td.right.winner ? " card-winner" : "";
+  const bgHtml = renderSceneBg(td.bgSrc, td.kenBurns);
+  const mediaHtml = renderMediaCard(td.image);
 
   return `
+${bgHtml}
 <div class="layout-comparison">
+  ${mediaHtml}
   <div class="cmp-card cmp-left color-${lColor}">
     <div class="cmp-label">${escapeHtml(td.left.label)}</div>
     <div class="cmp-value">${escapeHtml(td.left.value)}</div>
@@ -209,8 +225,13 @@ function renderComparisonInner(td: Extract<TemplateDataType, { template: "compar
 // ── STAT HERO SCENE ────────────────────────────────────────────────────────
 function renderStatHeroInner(td: Extract<TemplateDataType, { template: "stat-hero" }>): string {
   const context = td.context ? `<div class="stat-context">${escapeHtml(td.context)}</div>` : "";
+  const bgHtml = renderSceneBg(td.bgSrc, td.kenBurns);
+  const mediaHtml = renderMediaCard(td.image);
+
   return `
+${bgHtml}
 <div class="layout-stat-hero">
+  ${mediaHtml}
   <div class="stat-value shimmer-sweep-target">${escapeHtml(td.value)}</div>
   <div class="stat-label">${escapeHtml(td.label)}</div>
   ${context}
@@ -225,9 +246,13 @@ function renderFeatureListInner(td: Extract<TemplateDataType, { template: "featu
       <div class="feat-text">${escapeHtml(b)}</div>
     </div>`
   ).join("\n    ");
+  const bgHtml = renderSceneBg(td.bgSrc, td.kenBurns);
+  const mediaHtml = renderMediaCard(td.image);
 
   return `
+${bgHtml}
 <div class="layout-feature-list">
+  ${mediaHtml}
   <div class="feat-card">
     <div class="feat-title">${escapeHtml(td.title)}</div>
     <div class="feat-rule"></div>
@@ -241,8 +266,13 @@ function renderFeatureListInner(td: Extract<TemplateDataType, { template: "featu
 // ── CALLOUT SCENE ──────────────────────────────────────────────────────────
 function renderCalloutInner(td: Extract<TemplateDataType, { template: "callout" }>): string {
   const tag = td.tag ? `<div class="callout-tag">${escapeHtml(td.tag)}</div>` : "";
+  const bgHtml = renderSceneBg(td.bgSrc, td.kenBurns);
+  const mediaHtml = renderMediaCard(td.image);
+
   return `
+${bgHtml}
 <div class="layout-callout">
+  ${mediaHtml}
   <div class="callout-card">
     ${tag}
     <div class="callout-statement">${escapeHtml(td.statement)}</div>
@@ -257,8 +287,13 @@ function renderOutroInner(
   avatarRelPath: string,
 ): string {
   const ttCard = renderTiktokCard(tiktok, avatarRelPath);
+  const bgHtml = renderSceneBg(td.bgSrc, td.kenBurns);
+  const mediaHtml = renderMediaCard(td.image);
+
   return `
+${bgHtml}
 <div class="layout-outro">
+  ${mediaHtml}
   <div class="out-cta-top">${escapeHtml(td.ctaTop)}</div>
   <div class="out-channel">${escapeHtml(td.channelName)}</div>
   <div class="out-underline"></div>
