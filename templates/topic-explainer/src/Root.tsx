@@ -18,6 +18,8 @@ import { FlutterExplainer } from "./FlutterExplainer/FlutterExplainer";
 import { flutterExplainerSchema } from "./FlutterExplainer/types";
 import { AiDevExplainer } from "./AiDevExplainer/AiDevExplainer";
 import { aiDevExplainerSchema } from "./AiDevExplainer/types";
+import { ReactVsReactNativeExplainer } from "./ReactVsReactNativeExplainer/ReactVsReactNativeExplainer";
+import { reactVsReactNativeExplainerSchema } from "./ReactVsReactNativeExplainer/types";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -154,6 +156,21 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           title: "AI Trong Cuộc Sống Developer",
           subtitle: "Một Ngày Làm Việc Thực Tế Tại Công Ty Công Nghệ",
+        }}
+      />
+
+      {/* 157s (~2.6m) AI Voice Explainer: So Sánh React JS vs React Native (White-Orange Edition) */}
+      <Composition
+        id="ReactVsReactNativeExplainer"
+        component={ReactVsReactNativeExplainer}
+        durationInFrames={4707}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={reactVsReactNativeExplainerSchema}
+        defaultProps={{
+          title: "So Sánh React JS vs React Native",
+          subtitle: "Thế Giới Web vs Bá Chủ Di Động",
         }}
       />
     </>

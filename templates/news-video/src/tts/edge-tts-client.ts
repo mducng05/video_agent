@@ -1,5 +1,7 @@
 import { EdgeTTS, createSRT } from "edge-tts-universal";
 import { writeFile } from "node:fs/promises";
+import { existsSync, statSync } from "node:fs";
+import { execFile } from "node:child_process";
 import type { TtsClient } from "./tts-client.js";
 
 export interface EdgeTtsOpts {
@@ -13,7 +15,7 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 /**
  * Edge TTS client using Microsoft Edge online text-to-speech service (Free).
- * Powered by `edge-tts-universal`.
+ * Powered by official `edge-tts` CLI with `edge-tts-universal` fallback.
  *
  * Supports subtitle generation (SRT) via word boundary cues.
  */
@@ -21,6 +23,27 @@ export class EdgeTtsClient implements TtsClient {
   constructor(private cfg: EdgeTtsOpts) {}
 
   async generate(text: string, audioOutPath: string, srtOutPath?: string): Promise<void> {
+    // 1. Try official edge-tts CLI first (fast and robust)
+    try {
+      const args = ["--voice", this.cfg.voice, "--text", text, "--write-media", audioOutPath];
+      if (this.cfg.rate && this.cfg.rate !== "+0%") args.push("--rate", this.cfg.rate);
+      if (this.cfg.pitch && this.cfg.pitch !== "+0Hz") args.push("--pitch", this.cfg.pitch);
+      if (this.cfg.volume && this.cfg.volume !== "+0%") args.push("--volume", this.cfg.volume);
+
+      await new Promise<void>((resolve, reject) => {
+        execFile("edge-tts", args, { windowsHide: true }, (err) => {
+          if (err) return reject(err);
+          resolve();
+        });
+      });
+
+      if (existsSync(audioOutPath) && statSync(audioOutPath).size > 500) {
+        return;
+      }
+    } catch {
+      // Fallback to edge-tts-universal library below
+    }
+
     await this.synthesizeWithRetry(text, audioOutPath, srtOutPath);
   }
 

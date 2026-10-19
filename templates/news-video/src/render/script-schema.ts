@@ -113,7 +113,7 @@ export const ScriptSchema = z.object({
   scenes: z
     .array(Scene)
     .min(5)
-    .max(8, "scenes must have at most 8 items")
+    .max(25, "scenes must have at most 25 items")
     .refine(
       (s) => s[0]?.type === "hook",
       { message: "scenes[0] must be type=hook" }

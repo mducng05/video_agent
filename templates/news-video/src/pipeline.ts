@@ -30,6 +30,14 @@ const TPL_DIR = join(__dirname, "render", "templates");
 /** Path to the SFX library (relative to project root) */
 const SFX_DIR = join(__dirname, "..", "assets", "sfx");
 
+const laragonFfmpeg = "C:\\laragon\\bin\\ffmpeg\\bin";
+const bundledBin = join(__dirname, "..", "..", "..", "node_modules", "@remotion", "compositor-win32-x64-msvc");
+if (existsSync(laragonFfmpeg)) {
+  process.env.PATH = `${laragonFfmpeg};${process.env.PATH}`;
+} else if (existsSync(bundledBin)) {
+  process.env.PATH = `${bundledBin};${process.env.PATH}`;
+}
+
 const HYPERFRAMES_CONFIG = {
   $schema: "https://hyperframes.heygen.com/schema/hyperframes.json",
   registry: "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry",
@@ -104,7 +112,7 @@ export async function runPipeline(scriptPath: string): Promise<void> {
   ]);
 
   let bgImageRelPath: string | null = null;
-  if (imgResult.success) {
+  if (imgResult.success || existsSync(imgPath)) {
     bgImageRelPath = "images/bg.jpg";
   } else {
     log.warn(`Background image fetch failed: ${imgResult.reason} → using gradient fallback`);

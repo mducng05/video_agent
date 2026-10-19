@@ -112,8 +112,6 @@ export async function generateSpeechToFile(
     volume?: string;
   }
 ): Promise<{ sizeBytes: number; durationSec: number; durationInFrames: number }> {
-  const { EdgeTTS } = await import("edge-tts-universal");
-
   const voice = options?.voice || process.env.EDGE_TTS_VOICE || "vi-VN-NamMinhNeural";
   const rate = options?.rate || process.env.EDGE_TTS_RATE || "+10%";
   const pitch = options?.pitch || process.env.EDGE_TTS_PITCH || "+0Hz";
@@ -124,16 +122,46 @@ export async function generateSpeechToFile(
     fs.mkdirSync(dir, { recursive: true });
   }
 
+  // 1. Try edge-tts CLI first (fast and robust)
+  try {
+    const { execFileSync } = await import("child_process");
+    const args = ["--voice", voice, "--text", text, "--write-media", outputPath];
+    if (rate && rate !== "+0%") {
+      args.push("--rate", rate);
+    }
+    if (pitch && pitch !== "+0Hz" && pitch !== "+0%") {
+      args.push("--pitch", pitch);
+    }
+    if (volume && volume !== "+0%") {
+      args.push("--volume", volume);
+    }
+    execFileSync("edge-tts", args, { stdio: "pipe", windowsHide: true });
+
+    if (fs.existsSync(outputPath) && fs.statSync(outputPath).size > 1000) {
+      const audioBuffer = fs.readFileSync(outputPath);
+      const durationSec = estimateMp3Duration(audioBuffer);
+      const durationInFrames = Math.ceil(durationSec * 30) + 10;
+      return {
+        sizeBytes: audioBuffer.length,
+        durationSec: Math.round(durationSec * 100) / 100,
+        durationInFrames,
+      };
+    }
+  } catch (cliErr) {
+    console.warn("      ⚠️ edge-tts CLI not available or failed, falling back to edge-tts-universal...", (cliErr as Error)?.message || cliErr);
+  }
+
+  // 2. Fallback to edge-tts-universal
+  const { EdgeTTS } = await import("edge-tts-universal");
   const ttsOptions: Record<string, string> = {};
   if (rate && rate !== "+0%") ttsOptions.rate = rate;
   if (pitch && pitch !== "+0Hz" && pitch !== "+0%") ttsOptions.pitch = pitch;
   if (volume && volume !== "+0%") ttsOptions.volume = volume;
 
   let lastError: unknown;
-  for (let attempt = 1; attempt <= 5; attempt++) {
+  for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const tts = new EdgeTTS(text, voice, ttsOptions);
-
       const result = await tts.synthesize();
       const audioBuffer = Buffer.from(await result.audio.arrayBuffer());
       if (audioBuffer.length === 0) {
@@ -141,9 +169,7 @@ export async function generateSpeechToFile(
       }
 
       fs.writeFileSync(outputPath, audioBuffer);
-
       const durationSec = estimateMp3Duration(audioBuffer);
-      // Remotion uses 30 FPS by default, add 10 frames (~0.33s) safety padding for natural scene transition
       const durationInFrames = Math.ceil(durationSec * 30) + 10;
 
       return {
@@ -153,7 +179,7 @@ export async function generateSpeechToFile(
       };
     } catch (err) {
       lastError = err;
-      const delay = attempt * 2000;
+      const delay = attempt * 1500;
       console.warn(`      ⚠️ Attempt ${attempt} failed, retrying in ${delay / 1000}s...`, (err as Error)?.message || err);
       await new Promise((r) => setTimeout(r, delay));
     }

@@ -244,9 +244,3 @@ VIETNAMESE_VOICEID=your_voice_id
   - Template 3: Sửa hợp đồng màu sắc và animation tại `templates/compare-video/DESIGN.md`.
 
 ---
-
-## 📄 License & Ghi nhận nguồn
-
-- Bản quyền mã nguồn thuộc về [Cuongyd196](https://github.com/Cuongyd196).
-- Mã nguồn được phân phối dưới giấy phép **MIT License**.
-- Đóng góp, báo lỗi hoặc yêu cầu tính năng: vui lòng tạo Issue hoặc Pull Request trên repository.

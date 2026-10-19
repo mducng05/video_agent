@@ -24,9 +24,10 @@ export async function renderWithHyperframes(args: RenderArgs): Promise<void> {
   ];
 
   await new Promise<void>((resolve, reject) => {
-    const proc = spawn("npx", spawnArgs, {
+    const proc = spawn("npx", ["--no-install", ...spawnArgs], {
       stdio: ["ignore", "inherit", "inherit"],
       shell: true,
+      env: process.env,
     });
 
     proc.on("close", (code) => {

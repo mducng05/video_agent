@@ -92,10 +92,7 @@ export async function concatWithSilence(
       // `aresample` then rely on concat filter doing sample-accurate join.
       // The micro-fade is applied via `areverse,afade,areverse` trick to fade out:
       filterParts.push(
-        `${inLabel}aresample=44100,aformat=sample_fmts=fltp:channel_layouts=mono,` +
-        `afade=t=in:st=0:d=${FADE_SEC},` +
-        // Trim fade-out: reverse → fade-in → reverse (this fades the END)
-        `areverse,afade=t=in:st=0:d=${FADE_SEC},areverse[${outLabel}]`
+        `${inLabel}aresample=44100,aformat=sample_fmts=fltp:channel_layouts=mono[${outLabel}]`
       );
       labels.push(`[${outLabel}]`);
       idx++;
